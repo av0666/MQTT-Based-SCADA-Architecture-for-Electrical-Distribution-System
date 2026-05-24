@@ -1,0 +1,1524 @@
+[
+    {
+        "id": "925679cca527bd4b",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0dd2dafcaf6efe50",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Voltage_in",
+        "topic": "scada/esp32/voltage1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "6635870da2fea611",
+                "5008213db75991ab"
+            ]
+        ]
+    },
+    {
+        "id": "0fdb4b75e18f5e04",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Current_in",
+        "topic": "scada/esp32/current1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "82b7cff604938121",
+                "e4750a47f7070278"
+            ]
+        ]
+    },
+    {
+        "id": "b4e46e8414babf10",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Power_in",
+        "topic": "scada/esp32/power1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 440,
+        "wires": [
+            [
+                "899746b6b42028e3",
+                "e981407c44f7a986"
+            ]
+        ]
+    },
+    {
+        "id": "6635870da2fea611",
+        "type": "ui-gauge",
+        "z": "925679cca527bd4b",
+        "name": "Voltage_Value",
+        "group": "6663879f9526d62c",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "4",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Voltage",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "bottom-left",
+        "units": "V",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#00ff4c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "300",
+                "color": "#f20707",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "500",
+        "sizeThickness": "25",
+        "sizeGap": "10",
+        "sizeKeyThickness": "5",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 460,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5008213db75991ab",
+        "type": "ui-chart",
+        "z": "925679cca527bd4b",
+        "group": "6663879f9526d62c",
+        "name": "Voltage_fluctuations",
+        "label": "Voltage trend",
+        "order": 5,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "time",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Voltage",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": "3",
+        "showLegend": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "4",
+        "height": "5",
+        "className": "",
+        "interpolation": "smooth",
+        "x": 480,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "82b7cff604938121",
+        "type": "ui-chart",
+        "z": "925679cca527bd4b",
+        "group": "6663879f9526d62c",
+        "name": "Current_fluctuations",
+        "label": "Current trend",
+        "order": 6,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "time",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Current",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": "3",
+        "showLegend": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "4",
+        "height": "5",
+        "className": "",
+        "interpolation": "smooth",
+        "x": 480,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4750a47f7070278",
+        "type": "ui-gauge",
+        "z": "925679cca527bd4b",
+        "name": "Current_Value",
+        "group": "6663879f9526d62c",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "4",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Current",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "bottom-left",
+        "units": "A",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#00ff4c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "5",
+                "color": "#f20707",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "10",
+        "sizeThickness": "25",
+        "sizeGap": "10",
+        "sizeKeyThickness": "5",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 460,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "899746b6b42028e3",
+        "type": "ui-gauge",
+        "z": "925679cca527bd4b",
+        "name": "Power_Value",
+        "group": "6663879f9526d62c",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "4",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Power",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "bottom-left",
+        "units": "W",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#00ff4c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1000",
+                "color": "#f20707",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "1200",
+        "sizeThickness": "25",
+        "sizeGap": "10",
+        "sizeKeyThickness": "5",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e981407c44f7a986",
+        "type": "ui-chart",
+        "z": "925679cca527bd4b",
+        "group": "6663879f9526d62c",
+        "name": "Power_fluctuations",
+        "label": "Power trend",
+        "order": 7,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "time",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Power",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": "3",
+        "showLegend": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "4",
+        "height": "5",
+        "className": "",
+        "interpolation": "smooth",
+        "x": 470,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "196c3942aabba8ce",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Power_Factor_in",
+        "topic": "scada/esp32/pf1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 580,
+        "wires": [
+            [
+                "5bd6c4d42f486cb3"
+            ]
+        ]
+    },
+    {
+        "id": "5bd6c4d42f486cb3",
+        "type": "ui-gauge",
+        "z": "925679cca527bd4b",
+        "name": "Power_Factor_Value",
+        "group": "6663879f9526d62c",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 12,
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "PF",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "bottom-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#fa0000",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "0.49",
+                "color": "#675651",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "0.79",
+                "color": "#00ff04",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "1",
+        "sizeThickness": "25",
+        "sizeGap": "10",
+        "sizeKeyThickness": "5",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 480,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70b334079a1dd7e4",
+        "type": "comment",
+        "z": "925679cca527bd4b",
+        "name": "Live Feeder Parameter Section",
+        "info": "This Section contains arrangement of nodes\nwhich shows live feeder parameters.\n",
+        "x": 290,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6212d4a8b0b0e4c4",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Voltage_in",
+        "topic": "scada/esp32/voltage1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 800,
+        "wires": [
+            [
+                "7c3c1b1095b2ab98"
+            ]
+        ]
+    },
+    {
+        "id": "a694d2d81b24c1e9",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Current_in",
+        "topic": "scada/esp32/current1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 880,
+        "wires": [
+            [
+                "7c3c1b1095b2ab98"
+            ]
+        ]
+    },
+    {
+        "id": "8231f00651ad6088",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Power_in",
+        "topic": "scada/esp32/power1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 940,
+        "wires": [
+            [
+                "7c3c1b1095b2ab98"
+            ]
+        ]
+    },
+    {
+        "id": "7c3c1b1095b2ab98",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "store data",
+        "func": "// Get stored arrays from global memory\nlet voltage = global.get(\"voltage\") || [];\nlet current = global.get(\"current\") || [];\nlet power = global.get(\"power\") || [];\n\n// Convert payload safely to number\nlet value = Number(msg.payload);\n\n// Ignore invalid data\nif (isNaN(value)) {\n    return null;\n}\n\n// Message sorting\nif (msg.topic === \"scada/esp32/voltage1\") {\n    voltage.push(value);\n    global.set(\"voltage\", voltage);\n}\nelse if (msg.topic === \"scada/esp32/current1\") {\n    current.push(value);\n    global.set(\"current\", current);\n}\nelse if (msg.topic === \"scada/esp32/power1\") {\n    power.push(value);\n    global.set(\"power\", power);\n}\n\n// Optional safety: limit array size\nif (voltage.length > 1000) voltage.shift();\nif (current.length > 1000) current.shift();\nif (power.length > 1000) power.shift();\n\n// Do not pass data forward\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d76b11b895b37dfc",
+        "type": "inject",
+        "z": "925679cca527bd4b",
+        "name": "Trigger_1_hour",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "16",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 1000,
+        "wires": [
+            [
+                "33bea05f63fd1abe"
+            ]
+        ]
+    },
+    {
+        "id": "33bea05f63fd1abe",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "Average_Calculation",
+        "func": "// Get data\nlet voltage = global.get(\"voltage\") || [];\nlet current = global.get(\"current\") || [];\nlet power = global.get(\"power\") || [];\n\n// Calculate averages\nlet avgV = voltage.reduce((a,b)=>a+b,0)/voltage.length || 0;\nlet avgC = current.reduce((a,b)=>a+b,0)/current.length || 0;\nlet avgP = power.reduce((a,b)=>a+b,0)/power.length || 0;\n\n// Create row\nlet data = {\n    time: new Date().toLocaleTimeString(),\n    voltage: avgV.toFixed(2),\n    current: avgC.toFixed(2),\n    power: avgP.toFixed(2)\n};\n\n// Table logic (NEW FIX)\nlet table = flow.get(\"tableData\") || [];\n\ntable.push(data);\n\nif (table.length > 24) {\n    table.shift();\n}\n\nflow.set(\"tableData\", table);\n\nlet displayTable = [...table].reverse();\n\nmsg.payload = displayTable;\n\n// Clear data after calculation\nglobal.set(\"voltage\", []);\nglobal.set(\"current\", []);\nglobal.set(\"power\", []);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1000,
+        "wires": [
+            [
+                "053424f2419cb365"
+            ]
+        ]
+    },
+    {
+        "id": "053424f2419cb365",
+        "type": "ui-table",
+        "z": "925679cca527bd4b",
+        "group": "f75d8f8d254cfc23",
+        "name": "Hourly_data",
+        "label": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "maxrows": "0",
+        "passthru": false,
+        "autocols": false,
+        "showSearch": false,
+        "deselect": false,
+        "selectionType": "none",
+        "columns": [
+            {
+                "title": "Time",
+                "key": "time",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Voltage (V)",
+                "key": "voltage",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Current (A)",
+                "key": "current",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Power (W)",
+                "key": "power",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "className": "",
+        "x": 790,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1b329de569e1fe23",
+        "type": "ui-button",
+        "z": "925679cca527bd4b",
+        "group": "f75d8f8d254cfc23",
+        "name": "Reset Button",
+        "label": "Reset Data (Only for Demo)",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 250,
+        "y": 1060,
+        "wires": [
+            [
+                "685ff382a2b20c7a"
+            ]
+        ]
+    },
+    {
+        "id": "685ff382a2b20c7a",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "Reset Table",
+        "func": "\n// Clear table data\nflow.set(\"tableData\", []);\n\n// Clear stored sensor arrays\nglobal.set(\"voltage\", []);\nglobal.set(\"current\", []);\nglobal.set(\"power\", []);\n\n// Send empty table to dashboard\nmsg.payload = [];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1060,
+        "wires": [
+            [
+                "053424f2419cb365"
+            ]
+        ]
+    },
+    {
+        "id": "fb5721b4222061f7",
+        "type": "comment",
+        "z": "925679cca527bd4b",
+        "name": "Feeder Parameters log section",
+        "info": "This section contains log of feeder \nparameters which shows us that what was the\nvalue of these parameters over a period of \ntime.\n\nHere, all the data coming through mqtt is \nstored during period and then we calculate \ntime average of incoming RMS values over \nthat period and log it.",
+        "x": 310,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "9cf24e1fc9c1638d",
+        "type": "comment",
+        "z": "925679cca527bd4b",
+        "name": "Fault Log section",
+        "info": "This section contains last 50 logs of faults\nwhich has occured in the system. ",
+        "x": 260,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "4cb4f5495ff0c902",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Current_in",
+        "topic": "scada/esp32/current1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 1300,
+        "wires": [
+            [
+                "96ca3d39c1a96597"
+            ]
+        ]
+    },
+    {
+        "id": "96ca3d39c1a96597",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "Overcurrent_detection",
+        "func": "let threshold = 5;\nlet resetThreshold = 4.85;   // hysteresis \n\nlet current = Number(msg.payload);\n\n// Stored values\nlet isFault = flow.get(\"oc_fault\") || false;\nlet maxCurrent = flow.get(\"oc_max\") || 0;\n\n// FAULT START\nif (current > threshold) {\n\n    if (!isFault) {\n        // First time detection\n        flow.set(\"oc_startTime\", new Date().toLocaleString());\n    }\n\n    isFault = true;\n\n    // Track peak\n    if (current > maxCurrent) {\n        maxCurrent = current;\n    }\n\n    flow.set(\"oc_fault\", true);\n    flow.set(\"oc_max\", maxCurrent);\n\n    return null;\n}\n\n// FAULT END (with hysteresis) \nif (isFault && current < resetThreshold) {\n\n    let event = {\n        type: \"OVERCURRENT\",\n        value: maxCurrent,\n        time: flow.get(\"oc_startTime\"),\n        clearTime: new Date().toLocaleString(),\n        status: \"TRIPPED\",\n        severity: \"MEDIUM\",\n        source: \"Node-RED\"\n    };\n\n    // Reset\n    flow.set(\"oc_fault\", false);\n    flow.set(\"oc_max\", 0);\n\n    msg.payload = event;\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1300,
+        "wires": [
+            [
+                "14ef0d9dfab38808"
+            ]
+        ]
+    },
+    {
+        "id": "590b6129e35c28cb",
+        "type": "ui-table",
+        "z": "925679cca527bd4b",
+        "group": "7ff31013fc24fca1",
+        "name": "fault Log",
+        "label": "",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "maxrows": "20",
+        "passthru": false,
+        "autocols": false,
+        "showSearch": false,
+        "deselect": false,
+        "selectionType": "none",
+        "columns": [
+            {
+                "title": "Time",
+                "key": "time",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Fault Clearing Time",
+                "key": "clearTime",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Fault type",
+                "key": "type",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Status",
+                "key": "status",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Severity",
+                "key": "severity",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Peak Fault Value",
+                "key": "value",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Fault Detection Source (For Demo)",
+                "key": "source",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "className": "",
+        "x": 1000,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d3084ab43c47b4be",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "Reset Table",
+        "func": "flow.set(\"faultLog\", []);\nflow.set(\"overcurrentState\", false);\n\nmsg.payload = [];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 1240,
+        "wires": [
+            [
+                "590b6129e35c28cb"
+            ]
+        ]
+    },
+    {
+        "id": "1501b4c6fde49a40",
+        "type": "ui-button",
+        "z": "925679cca527bd4b",
+        "group": "7ff31013fc24fca1",
+        "name": "Reset Button",
+        "label": "Reset Data (Only for Demo)",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 250,
+        "y": 1240,
+        "wires": [
+            [
+                "d3084ab43c47b4be"
+            ]
+        ]
+    },
+    {
+        "id": "8dc8bb7b9426f6e6",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Voltage_in",
+        "topic": "scada/esp32/voltage1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 1440,
+        "wires": [
+            [
+                "2a3cf736a4f0c2f8",
+                "f4a5a7cd5bfe9699"
+            ]
+        ]
+    },
+    {
+        "id": "2a3cf736a4f0c2f8",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "Overvoltage_detection",
+        "func": "let voltage = Number(msg.payload);\n\nlet ov_limit = 280;\nlet reset_limit = 275;   // hysteresis\n\n// States\nlet ovActive = flow.get(\"ovActive\") || false;\n\n// Peak trackers\nlet maxOV = flow.get(\"maxOV\") || 0;\n\n// FAULT START\nif (voltage > ov_limit) {\n\n    if (!ovActive) {\n        // First detection\n        flow.set(\"ov_startTime\", new Date().toLocaleString());\n        maxOV = voltage;\n    }\n\n    ovActive = true;\n\n    // Track peak voltage\n    if (voltage > maxOV) {\n        maxOV = voltage;\n    }\n\n    flow.set(\"ovActive\", true);\n    flow.set(\"maxOV\", maxOV);\n\n    return null;\n}\n\n// FAULT END (WITH HYSTERESIS) \nif (ovActive && voltage < reset_limit) {\n\n    let event = {\n        type: \"OVERVOLTAGE\",\n        value: maxOV,\n        time: flow.get(\"ov_startTime\"),\n        clearTime: new Date().toLocaleString(),\n        status: \"TRIPPED\",\n        severity: \"MEDIUM\",\n        source: \"Node-RED\"\n    };\n\n    // Reset\n    flow.set(\"ovActive\", false);\n    flow.set(\"maxOV\", 0);\n\n    msg.payload = event;\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1420,
+        "wires": [
+            [
+                "14ef0d9dfab38808"
+            ]
+        ]
+    },
+    {
+        "id": "14ef0d9dfab38808",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "fault data flow function",
+        "func": "// VALIDATE\nif (!msg.payload) return null;\n\nlet log = flow.get(\"faultLog\") || [];\nlet entry = {};\n\n// STRING (ESP32 FAULT) \nif (typeof msg.payload === \"string\") {\n\n    let type = msg.payload;\n\n    let severity = \"LOW\";\n    let status = \"ACTIVE\";\n\n    if (type === \"SHORT_CIRCUIT\") {\n        severity = \"HIGH\";\n        status = \"TRIPPED\";\n    }\n    else if (type === \"OVERCURRENT\" || type === \"OVERVOLTAGE\" || type === \"UNDERVOLTAGE\") {\n        severity = \"MEDIUM\";\n        status = \"ACTIVE\";\n    }\n\n    entry = {\n        time: new Date().toLocaleString(),\n        clearTime: \"-\",   // NEW\n        type: type,\n        value: \"-\",\n        status: status,\n        severity: severity,\n        source: \"ESP32\"\n    };\n}\n\n//  OBJECT (NODE-RED EVENTS) \nelse if (typeof msg.payload === \"object\") {\n\n    entry = {\n        time: msg.payload.time || new Date().toLocaleString(),\n        clearTime: msg.payload.clearTime || \"-\",   // NEW\n        type: msg.payload.type || \"UNKNOWN\",\n        value: msg.payload.value ?? \"-\",\n        status: msg.payload.status || \"ACTIVE\",\n        severity: msg.payload.severity || \"LOW\",\n        source: msg.payload.source || \"Node-RED\"\n    };\n}\n\n// PREVENT DUPLICATE ENTRIES \nlet last = log[log.length - 1];\nif (last && last.type === entry.type && last.status === entry.status) {\n    return null;\n}\n\n//  ADD LOG \nlog.push(entry);\n\n// LIMIT\nif (log.length > 50) log = log.slice(-50);\n\nflow.set(\"faultLog\", log);\n\n//  OUTPUT \nmsg.payload = [...log].reverse();\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1360,
+        "wires": [
+            [
+                "590b6129e35c28cb"
+            ]
+        ]
+    },
+    {
+        "id": "60fb8a79e342063c",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Fault ",
+        "topic": "scada/esp32/fault1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 1360,
+        "wires": [
+            [
+                "14ef0d9dfab38808"
+            ]
+        ]
+    },
+    {
+        "id": "f4a5a7cd5bfe9699",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "Undervoltage_detection",
+        "func": "let voltage = Number(msg.payload);\n\nlet uv_limit = 180;      // trip threshold\nlet reset_limit = 185;   // hysteresis reset\n\n// States\nlet uvActive = flow.get(\"uvActive\") || false;\n\n// Min tracker (important difference from OV)\nlet minUV = flow.get(\"minUV\") || voltage;\n\n//  FAULT START / CONTINUE\nif (voltage < uv_limit) {\n\n    if (!uvActive) {\n        // First detection\n        flow.set(\"uv_startTime\", new Date().toLocaleString());\n        minUV = voltage;\n    }\n\n    uvActive = true;\n\n    // Track minimum voltage\n    if (voltage < minUV) {\n        minUV = voltage;\n    }\n\n    flow.set(\"uvActive\", true);\n    flow.set(\"minUV\", minUV);\n\n    return null;\n}\n\n// FAULT END (WITH HYSTERESIS)\nif (uvActive && voltage > reset_limit) {\n\n    let event = {\n        type: \"UNDERVOLTAGE\",\n        value: minUV,   // lowest voltage reached\n        time: flow.get(\"uv_startTime\"),\n        clearTime: new Date().toLocaleString(),\n        status: \"TRIPPED\",\n        severity: \"MEDIUM\",\n        source: \"Node-RED\"\n    };\n\n    // Reset\n    flow.set(\"uvActive\", false);\n    flow.set(\"minUV\", voltage);\n\n    msg.payload = event;\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1460,
+        "wires": [
+            [
+                "14ef0d9dfab38808"
+            ]
+        ]
+    },
+    {
+        "id": "35b206fc91c57db5",
+        "type": "comment",
+        "z": "925679cca527bd4b",
+        "name": "SLD Section",
+        "info": "This section contains flow for sld control.\nIn this section we receive data from mqtt \nand shows in interactive SLD.",
+        "x": 250,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "fc5217f1b9adae30",
+        "type": "ui-template",
+        "z": "925679cca527bd4b",
+        "group": "4d7e2ff155b77d28",
+        "page": "",
+        "ui": "",
+        "name": "sld",
+        "order": 1,
+        "width": "12",
+        "height": "11",
+        "head": "",
+        "format": "<div id=\"sldWrapper\" style=\"transform: scale(1); transform-origin: top center;\">\n\n    <div style=\"text-align:center;font-family:Arial;\">\n        <h3>⚡ Distribution Feeder SLD</h3>\n\n        <div id=\"mcb\"\n            style=\"width:50px;height:30px;margin:5px auto;background:green;color:white;line-height:30px;border-radius:5px;font-size:12px;\">\n            MCB</div>\n\n        <div style=\"width:8px;height:25px;background:#444;margin:auto;\"></div>\n\n        <div style=\"width:80px;height:30px;margin:5px auto;background:#ddd;border-radius:5px;font-size:12px;\">V Sensor\n        </div>\n        <p style=\"margin:2px;\">V: <span id=\"voltage\">0</span> V</p>\n\n        <div style=\"width:8px;height:25px;background:#444;margin:auto;\"></div>\n\n        <div style=\"width:80px;height:30px;margin:5px auto;background:#ddd;border-radius:5px;font-size:12px;\">I Sensor\n        </div>\n        <p style=\"margin:2px;\">I: <span id=\"current\">0</span> A</p>\n\n        <div id=\"cb\"\n            style=\"width:50px;height:30px;margin:5px auto;background:red;color:white;line-height:30px;border-radius:5px;font-size:12px;cursor:pointer;\">\n            OFF</div>\n\n        <div id=\"line\" style=\"width:8px;height:70px;background:#444;margin:auto;\"></div>\n\n        <div id=\"load\"\n            style=\"width:60px;height:60px;margin:5px auto;background:grey;line-height:60px;border-radius:50%;font-size:20px;\">\n            💡</div>\n\n        <div id=\"status\" style=\"margin-top:5px;font-weight:bold;font-size:13px;\">STATUS: UNKNOWN</div>\n\n        <div id=\"fault\" style=\"margin-top:5px;font-weight:bold;color:green;font-size:14px;\">NORMAL</div>\n    </div>\n\n</div>\n\n<script>\n    (function() {\n\n    const SCALE = 1.2;\n    const wrapper = document.getElementById(\"sldWrapper\");\n    if(wrapper) wrapper.style.transform = \"scale(\" + SCALE + \")\";\n\n    // 🔥 UPDATED DATA STRUCTURE\n    let data = { \n        voltage:0, \n        current:0, \n        relay:\"OFF\", \n        status:\"UNKNOWN\",\n        fault:\"NORMAL\" \n    };\n\n    this.$watch('msg', (msg) => {\n        if (!msg || !msg.topic) return;\n        if (msg.topic === \"relay_control\") return;\n\n        // ===== INPUTS =====\n        if (msg.topic === \"voltage\") data.voltage = msg.payload;\n        if (msg.topic === \"current\") data.current = msg.payload;\n        if (msg.topic === \"relay\") data.relay = msg.payload;\n        if (msg.topic === \"status\") data.status = msg.payload;\n        if (msg.topic === \"fault\") data.fault = msg.payload;\n\n        // ===== UPDATE VALUES =====\n        document.getElementById(\"voltage\").innerText = data.voltage;\n        document.getElementById(\"current\").innerText = data.current;\n\n        const cb = document.getElementById(\"cb\");\n        const load = document.getElementById(\"load\");\n        const line = document.getElementById(\"line\");\n        const faultBox = document.getElementById(\"fault\");\n        const statusBox = document.getElementById(\"status\");\n        const mcb = document.getElementById(\"mcb\");\n\n        if (!cb || !load || !line || !faultBox || !statusBox || !mcb) return;\n\n        // ===== RELAY (CB POSITION) =====\n        if (data.relay === \"ON\") {\n            cb.style.background = \"green\";\n            cb.innerText = \"ON\";\n            load.style.background = \"yellow\";\n            line.style.background = \"green\";\n        } else {\n            cb.style.background = \"red\";\n            cb.innerText = \"OFF\";\n            load.style.background = \"grey\";\n            line.style.background = \"#444\";\n        }\n\n        // ===== STATUS DISPLAY =====\n        statusBox.innerText = \"STATUS: \" + data.status;\n\n        if (data.status === \"TRIPPED\") {\n            mcb.style.background = \"red\";\n        } else if (data.status === \"RECLOSING\") {\n            mcb.style.background = \"orange\";\n        } else if (data.status === \"LOCKOUT\") {\n            mcb.style.background = \"black\";\n        } else if (data.status === \"NORMAL\") {\n            mcb.style.background = \"green\";\n        }\n\n        // ===== FAULT DISPLAY =====\n        if (data.fault === \"SHORT_CIRCUIT\") {\n            faultBox.innerText = \"⚠️ SHORT CIRCUIT\";\n            faultBox.style.color = \"red\";\n        } else if (data.fault === \"OVERCURRENT\") {\n            faultBox.innerText = \"⚠️ OVERCURRENT\";\n            faultBox.style.color = \"orange\";\n        } else if (data.fault === \"OVERVOLTAGE\") {\n            faultBox.innerText = \"⚠️ OVERVOLTAGE\";\n            faultBox.style.color = \"orange\";\n        } else if (data.fault === \"UNDERVOLTAGE\") {\n            faultBox.innerText = \"⚠️ UNDERVOLTAGE\";\n            faultBox.style.color = \"blue\";\n        } else {\n            faultBox.innerText = \"NORMAL\";\n            faultBox.style.color = \"green\";\n        }\n    });\n\n    // ===== MANUAL CONTROL =====\n    const cbBtn = document.getElementById(\"cb\");\n    if(cbBtn) {\n        cbBtn.addEventListener(\"click\", () => {\n            const newState = (cbBtn.innerText.trim() === \"ON\") ? \"OFF\" : \"ON\";\n            if (!confirm(\"Do you want to turn \" + newState + \" the Circuit Breaker?\")) return;\n\n            this.send({ topic:\"scada/relay1\", payload:newState });\n        });\n    }\n\n}).call(this);\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 1760,
+        "wires": [
+            [
+                "3c1240ed32097ee0"
+            ]
+        ]
+    },
+    {
+        "id": "5ae9dc95ab377709",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "relay_status",
+        "topic": "scada/esp32/relay_state1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 1640,
+        "wires": [
+            [
+                "146875d30a7473b3"
+            ]
+        ]
+    },
+    {
+        "id": "56ac48c4d3457980",
+        "type": "mqtt out",
+        "z": "925679cca527bd4b",
+        "name": "relay_control",
+        "topic": "scada/relay1",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6531495632ca0c69",
+        "x": 1010,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "146875d30a7473b3",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "Data arranging Function",
+        "func": "// ===== GET STORED STATE =====\nlet data = flow.get(\"sldData\") || {\n    voltage: 0,\n    current: 0,\n    relay: \"OFF\",     // actual breaker position\n    status: \"UNKNOWN\",// system condition\n    fault: \"NORMAL\"\n};\n\n// ===== PROCESS BASED ON TOPIC =====\n\n// Voltage\nif (msg.topic === \"scada/esp32/voltage1\") {\n    data.voltage = Number(msg.payload);\n    flow.set(\"sldData\", data);\n    return { topic: \"voltage\", payload: data.voltage };\n}\n\n// Current\nelse if (msg.topic === \"scada/esp32/current1\") {\n    data.current = Number(msg.payload);\n    flow.set(\"sldData\", data);\n    return { topic: \"current\", payload: data.current };\n}\n\n// Relay Position (NEW - IMPORTANT)\nelse if (msg.topic === \"scada/esp32/relay_state1\") {\n    data.relay = msg.payload;\n    flow.set(\"sldData\", data);\n    return { topic: \"relay\", payload: data.relay };\n}\n\n// System Status (NORMAL / TRIPPED / RECLOSING / LOCKOUT)\nelse if (msg.topic === \"scada/esp32/status1\") {\n    data.status = msg.payload;\n    flow.set(\"sldData\", data);\n    return { topic: \"status\", payload: data.status };\n}\n\n// Fault\nelse if (msg.topic === \"scada/esp32/fault1\") {\n    data.fault = msg.payload;\n    flow.set(\"sldData\", data);\n    return { topic: \"fault\", payload: data.fault };\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1760,
+        "wires": [
+            [
+                "fc5217f1b9adae30"
+            ]
+        ]
+    },
+    {
+        "id": "9b4cd78cc8892b8f",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Voltage_in",
+        "topic": "scada/esp32/voltage1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 1700,
+        "wires": [
+            [
+                "146875d30a7473b3"
+            ]
+        ]
+    },
+    {
+        "id": "81edb8ed4887d7ba",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Current_in",
+        "topic": "scada/esp32/current1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 1760,
+        "wires": [
+            [
+                "146875d30a7473b3"
+            ]
+        ]
+    },
+    {
+        "id": "c6cc934e4957b162",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Fault_in",
+        "topic": "scada/esp32/fault1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 1820,
+        "wires": [
+            [
+                "146875d30a7473b3"
+            ]
+        ]
+    },
+    {
+        "id": "3c1240ed32097ee0",
+        "type": "function",
+        "z": "925679cca527bd4b",
+        "name": "Control function",
+        "func": "if (msg.topic === \"scada/relay1\") {\n    return msg; // pass only CB control messages\n} else {\n    return null; // ignore everything else\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1760,
+        "wires": [
+            [
+                "56ac48c4d3457980"
+            ]
+        ]
+    },
+    {
+        "id": "1d2117abf8e6f48c",
+        "type": "mqtt in",
+        "z": "925679cca527bd4b",
+        "name": "Status",
+        "topic": "scada/esp32/status1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6531495632ca0c69",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 1880,
+        "wires": [
+            [
+                "146875d30a7473b3"
+            ]
+        ]
+    },
+    {
+        "id": "6531495632ca0c69",
+        "type": "mqtt-broker",
+        "name": "HiveMq_Public_Mqtt",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6663879f9526d62c",
+        "type": "ui-group",
+        "name": "Feeder Parameters",
+        "page": "0c9da3aa31509ba7",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "f75d8f8d254cfc23",
+        "type": "ui-group",
+        "name": "Hourly Parameters Value",
+        "page": "d9c216ff64d50d45",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "7ff31013fc24fca1",
+        "type": "ui-group",
+        "name": "Fault Logs",
+        "page": "a46759a821f890f1",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "4d7e2ff155b77d28",
+        "type": "ui-group",
+        "name": "SLD",
+        "page": "6cb1ac063ea751e1",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "0c9da3aa31509ba7",
+        "type": "ui-page",
+        "name": "Live Feeder Parameters",
+        "ui": "38dc94458ee1ef45",
+        "path": "/live_feeder_data",
+        "icon": "none",
+        "layout": "grid",
+        "theme": "ae69fd672bb123c0",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "d9c216ff64d50d45",
+        "type": "ui-page",
+        "name": "Average Feeder Parameters ",
+        "ui": "38dc94458ee1ef45",
+        "path": "/parameters_log",
+        "icon": "none",
+        "layout": "grid",
+        "theme": "ae69fd672bb123c0",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 3,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "a46759a821f890f1",
+        "type": "ui-page",
+        "name": "Fault Logs",
+        "ui": "38dc94458ee1ef45",
+        "path": "/fault_log",
+        "icon": "none",
+        "layout": "grid",
+        "theme": "ae69fd672bb123c0",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 4,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "6cb1ac063ea751e1",
+        "type": "ui-page",
+        "name": "SLD",
+        "ui": "38dc94458ee1ef45",
+        "path": "/sld",
+        "icon": "none",
+        "layout": "grid",
+        "theme": "ae69fd672bb123c0",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "38dc94458ee1ef45",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": false,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "ae69fd672bb123c0",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "d60e152e47ad2761",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.2"
+        }
+    }
+]
